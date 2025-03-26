@@ -23,7 +23,7 @@ jobs:
         steps:
             # Just clone the entire repository to the virtual machine
             - name: Checkout repository
-              uses: git clone https://github.com/woelffel/estudoscicd.git .
+              uses: actions/checkout@v4
             
             # Set up python bacause ubuntu-latest does not have python installed
             - name: Set up python 3.12
