@@ -1,0 +1,44 @@
+# Name of the workflow
+name: Primeiro CI worflow
+
+# Setting events that triggers our workflow
+on:
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "main" ]
+
+
+# Permission to access/read the contents inside the repository
+permissions:
+    contents: read
+
+jobs:
+    # A job
+    build:
+        # The operation system to run the job
+        runs-on: ubuntu-latest
+
+        # Steps of the building workflow
+        steps:
+            # Just clone the entire repository to the virtual machine
+            - name: Checkout repository
+              uses: git clone https://github.com/woelffel/estudoscicd.git .
+            
+            # Set up python bacause ubuntu-latest does not have python installed
+            - name: Set up python 3.12
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.12'
+
+            # Installing poetry
+            - name: Installing poetry
+              uses: snok/install-poetry@v1
+
+            # Install dependencies using poetry
+            - name: Install dependencies
+              uses: poetry run make install
+
+            # Lint with flake8
+            - name: Lint with flake8
+              uses: poetry run make check
