@@ -41,6 +41,6 @@ jobs:
             - name: Install dependencies
               run: poetry run make install
 
-            # # Lint with flake8
-            # - name: Lint with flake8
-            #   run: poetry run make check
+            # Lint with flake8
+            - name: Lint with flake8
+              run: poetry run make check
