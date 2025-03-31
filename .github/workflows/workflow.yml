@@ -33,7 +33,7 @@ jobs:
 
             # Install dependencies using poetry
             - name: Install dependencies
-              run: pip install requirements.txt
+              run: pip install -r requirements.txt
 
             # # Lint with flake8
             # - name: Lint with flake8
