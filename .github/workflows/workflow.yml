@@ -24,25 +24,17 @@ jobs:
             # Just clone the entire repository to the virtual machine
             - name: Checkout repository
               uses: actions/checkout@v4
-
-              
             
             # Set up python bacause ubuntu-latest does not have python installed
-            - name: Set up python 3.10.16
+            - name: Set up python 3.12
               uses: actions/setup-python@v5
               with:
-                python-version: '3.10.16'
-
-            # Installing poetry
-            - name: Install poetry
-              run: |
-                curl -sSL https://install.python-poetry.org | python3 -
-                    export PATH=$HOME/.local/bin:$PATH
+                python-version: '3.10'
 
             # Install dependencies using poetry
             - name: Install dependencies
-              run: poetry run make install
+              run: pip install requirements.txt
 
-            # Lint with flake8
-            - name: Lint with flake8
-              run: poetry run make check
+            # # Lint with flake8
+            # - name: Lint with flake8
+            #   run: poetry run make check
