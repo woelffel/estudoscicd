@@ -37,4 +37,4 @@ jobs:
 
             # Lint with flake8
             - name: Lint with flake8
-              run: flake8 src/ --verbose
+              run: flake8 --verbose
