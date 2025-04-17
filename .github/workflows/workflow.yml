@@ -31,16 +31,10 @@ jobs:
               with:
                 python-version: '3.12'
 
-            # Installing poetry
-            # - name: Install poetry
-            #   run: |
-            #     curl -sSL https://install.python-poetry.org | python3 -
-            #         export PATH=$HOME/.local/bin:$PATH
-
-            # Install dependencies using poetry
+            # Install dependencies using pip
             - name: Install dependencies
               run: pip install -r requirements.txt
 
             # Lint with flake8
             - name: Lint with flake8
-              run: flake8
+              run: flake8 --verbose
