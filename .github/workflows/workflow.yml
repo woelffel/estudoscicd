@@ -26,21 +26,21 @@ jobs:
               uses: actions/checkout@v4
             
             # Set up python bacause ubuntu-latest does not have python installed
-            - name: Set up python 3.10.16
+            - name: Set up python 3.12
               uses: actions/setup-python@v5
               with:
-                python-version: '3.10.16'
+                python-version: '3.12'
 
             # Installing poetry
-            - name: Install poetry
-              run: |
-                curl -sSL https://install.python-poetry.org | python3 -
-                    export PATH=$HOME/.local/bin:$PATH
+            # - name: Install poetry
+            #   run: |
+            #     curl -sSL https://install.python-poetry.org | python3 -
+            #         export PATH=$HOME/.local/bin:$PATH
 
             # Install dependencies using poetry
             - name: Install dependencies
-              run: poetry run make install
+              run: pip install -r requirements.txt
 
             # Lint with flake8
             - name: Lint with flake8
-              run: poetry run make check
+              run: flake8
