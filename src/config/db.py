@@ -8,6 +8,7 @@ allowing settings to be read from environment variables and a .env file.
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy import create_engine
 
+
 class DbSettings(BaseSettings):
     """
     Database configuration settings for the application.
